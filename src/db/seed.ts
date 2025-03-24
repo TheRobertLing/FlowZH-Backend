@@ -6,12 +6,12 @@ import path from "path";
 
 const createTableQuery = `
   CREATE TABLE IF NOT EXISTS characters (
-      id INTEGER PRIMARY KEY,
-      simplified TEXT,
-      stroke_count INTEGER,
-      pinyin TEXT,
-      radical TEXT,
-      level INTEGER
+    id INTEGER PRIMARY KEY,
+    simplified TEXT,
+    stroke_count INTEGER,
+    pinyin TEXT,
+    radical TEXT,
+    level INTEGER
   );
 `;
 
