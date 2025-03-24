@@ -1,7 +1,8 @@
+import path from "path";
 import Database from "better-sqlite3";
 
-// Create a new database connection
-const db = new Database("database.sqlite");
+const dbPath = path.resolve(__dirname, "database.sqlite");
+const db = new Database(dbPath, { readonly: true });
 
 db.pragma("journal_mode = WAL");
 
