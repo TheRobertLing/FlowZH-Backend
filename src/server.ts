@@ -3,7 +3,10 @@ import cors from "cors";
 import "dotenv/config";
 import { getCharactersV1 } from "./controllers/PinyinTyperController.js";
 
-const HOST: string = process.env.HOST || "localhost";
+const HOST =
+  process.env.HOST ||
+  (process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost");
+
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
 const app = express();
@@ -25,7 +28,6 @@ app.use(cors());
 
 // V1 route, update once game ported to unity
 app.get("/api/v1/games/pinyin-typer/characters", getCharactersV1);
-
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////// Connection //////////////////////////////////
