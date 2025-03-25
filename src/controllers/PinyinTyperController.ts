@@ -2,8 +2,9 @@ import { Request, Response } from "express";
 import { Character } from "../types.js";
 import { fetchRandomCharacters } from "../models/CharacterModel.js";
 
-export const getCharacters = (req: Request, res: Response) => {
-  try { 
+export const getCharactersV1 = (req: Request, res: Response) => {
+  try {
+    // Extract query parameters
     const count: number = req.query.count
       ? parseInt(req.query.count as string)
       : 10;
@@ -11,6 +12,7 @@ export const getCharacters = (req: Request, res: Response) => {
       ? parseInt(req.query.preset as string)
       : 1;
     
+    // Fetch data
     const data: Character[] = fetchRandomCharacters(count, preset)
     res.json(data);
   } catch (err) {
