@@ -6,7 +6,7 @@ export function fetchRandomCharacters(
   level: number
 ): Character[] {
   const stmt = db.prepare(`
-    SELECT id, simplified, stroke_count, pinyin, radical, level
+    SELECT simplified, pinyin
     FROM characters
     WHERE level = ?
     ORDER BY RANDOM()
