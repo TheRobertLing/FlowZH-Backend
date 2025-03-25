@@ -4,7 +4,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon --ext ts --exec tsx src/server.ts",
-    "build": "tsc && cp src/database.sqlite dist/database.sqlite",
+    "build": "tsc",
     "start": "node dist/server.js",
     "seed": "ts-node src/db/seed.ts"
   },
