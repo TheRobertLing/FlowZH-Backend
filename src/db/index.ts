@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const dbPath = path.resolve(__dirname, "database.sqlite");
-const db = new Database(dbPath, { readonly: true });
+const db = new Database(dbPath);
 
 db.pragma("journal_mode = WAL");
 
