@@ -3,7 +3,7 @@ import cors from "cors";
 import "dotenv/config";
 import { getCharactersV1 } from "./controllers/PinyinTyperController.js";
 
-const HOST: string = process.env.HOST || "127.0.0.1";
+const HOST: string = process.env.HOST || "localhost";
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
 const app = express();
