@@ -13,7 +13,24 @@ const app = express();
 ////////////////////////////////////////////////////////////////////////////////
 
 app.use(express.json());
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://flowzh.netlify.app",
+  "https://flowzh.com",
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
 
 ////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// Routes ////////////////////////////////////
@@ -25,7 +42,6 @@ app.use(cors());
 
 // V1 route, update once game ported to unity
 app.get("/api/v1/games/pinyin-typer/characters", getCharactersV1);
-
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////// Connection //////////////////////////////////
