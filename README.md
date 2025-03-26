@@ -1,2 +1,2 @@
-# ziflow-backend
-Express.js backend for ziflow
+# FlowZH-backend
+Express.js backend for FlowZH
