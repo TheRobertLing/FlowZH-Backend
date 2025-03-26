@@ -3,7 +3,6 @@ import cors from "cors";
 import "dotenv/config";
 import { getCharactersV1 } from "./controllers/PinyinTyperController.js";
 
-const HOST: string = process.env.HOST || "localhost";
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
 const app = express();
@@ -31,6 +30,6 @@ app.get("/api/v1/games/pinyin-typer/characters", getCharactersV1);
 ////////////////////////////////// Connection //////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-app.listen(PORT, HOST, () => {
-  console.log(`Server running at http://${HOST}:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
 });
